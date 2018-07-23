@@ -1,6 +1,3 @@
-// get the URL of the page
-var url = document.location.href;
-
 var globalDict = {};
 var detectedKeys = "";
 
