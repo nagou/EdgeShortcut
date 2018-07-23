@@ -4,6 +4,8 @@
   "description": "Give shortcuts to the URLs on the webpage",
   "version": "1.0",
   "icons": {
+    "25": "images/color-changer25.png",
+    "48": "images/color-changer48.png"
   },
   "permissions": [
   ], 
