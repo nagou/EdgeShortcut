@@ -1,15 +1,40 @@
 // get the URL of the page
-var url = document.location.href
+var url = document.location.href;
 
-var url_pages = [], anchor_nodes = [];
+var globalDict = {};
+var detectedKeys = "";
 
-var anchors = document.links
-var len = anchors.length
-alert(len)
+var anchors = document.links;
+var len = anchors.length;
 while (len--){
     var a = anchors[len];
-    anchor_nodes.push(a); // push the node object in case that needs to change
-    url_pages.push(a.href); // push the href attribute to the array of hrefs
+    globalDict[len] = a.href;
 
     a.innerHTML = "<sup><b> <font color = 'red'>" + len + "</font></b></sup>" + a.text;
 }
+
+window.addEventListener("keydown", function(e) { var evtobj = window.event? event : e
+    if (evtobj.altKey && evtobj.keyCode >= 48 && evtobj.keyCode <= 57) {
+        detectedKeys = detectedKeys + (evtobj.keyCode-48);
+        console.log("hey I detected:" + (evtobj.keyCode-48));
+    }
+    //detect Enter
+    else if (evtobj.keyCode == 13 && detectedKeys) {
+        console.log("Finally I detected:" + detectedKeys);
+        if (detectedKeys in globalDict) {
+            console.log("Hey I have following in the dict " + globalDict[detectedKeys]);
+        }
+        tmpURL = globalDict[detectedKeys];
+        detectedKeys = "";
+        window.location = tmpURL;
+    }
+    else if (evtobj.altKey) {
+    //no-op for alt key
+    }
+    else {
+        detectedKeys = "";
+    }
+},
+false);
+
+console.log(globalDict);
