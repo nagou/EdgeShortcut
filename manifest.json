@@ -13,7 +13,7 @@
         "40":"images/color-changer40.png"
     },
     "default_title": "Edge Shortcut",
-    "default_popup": ""
+    "default_popup": "popup.html"
   },
   "content_scripts": [{
     "matches": [
