@@ -9,6 +9,8 @@
   ], 
   "browser_action": {
     "default_icon": {
+        "20":"images/color-changer20.png",
+        "40":"images/color-changer40.png"
     },
     "default_title": "Edge Shortcut",
     "default_popup": ""
