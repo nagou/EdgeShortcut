@@ -4,13 +4,13 @@ var url = document.location.href;
 var globalDict = {};
 var detectedKeys = "";
 
-var anchors = document.links;
-var len = anchors.length;
+var anchors = document.getElementsByTagName('a')
+var len = anchors.length
 while (len--){
     var a = anchors[len];
+    a.innerHTML = "<sup><b> <font color = 'red'>" + len +"</font></b></sup>" + a.innerHTML;
     globalDict[len] = a.href;
 
-    a.innerHTML = "<sup><b> <font color = 'red'>" + len + "</font></b></sup>" + a.text;
 }
 
 window.addEventListener("keydown", function(e) { var evtobj = window.event? event : e
