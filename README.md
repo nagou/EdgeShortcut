@@ -9,4 +9,4 @@ a. Enable Developer Mode
 2. Restart Edge
 
 b. Load the package
-======================
+--------------------
